@@ -1,0 +1,158 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+picture {
+  margin: 0;
+}
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+input,
+button,
+select,
+textarea {
+  font: inherit;
+}
+img,
+picture {
+  display: block;
+  max-width: 100%;
+}
+/* remove animation for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+}
+
+.music {
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 50px;
+}
+
+.music-thumb {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 25px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.music-thumb img {
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.music-name,
+.author-name {
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.author-name {
+  opacity: 0.8;
+  font-size: 16px;
+  margin: 5px 0 20px;
+}
+
+.timer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #999;
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 40px;
+}
+
+.play {
+  position: relative;
+}
+
+.play::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to right bottom, #ff6bcb, #ffb86c);
+  transform: scale(1.5);
+  z-index: 0;
+  border-radius: 100rem;
+}
+
+.play-inner {
+  font-size: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: white;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 100rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.play-back,
+.play-forward {
+  cursor: pointer;
+}
+
+.music-range {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: #999; /* Otherwise white in Chrome */
+}
+
+.music-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 100rem;
+  background-color: #05cf05;
+  cursor: pointer;
+  position: relative;
+  bottom: 8px;
+  box-shadow: 0 0 0 5px white, 0 0 0 6px rgba(153, 153, 153, 0.137);
+}
+
+.music-range::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  background: #999;
+}
