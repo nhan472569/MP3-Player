@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./sound.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="./images/sound.png" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -26,11 +26,15 @@
   <body>
     <div class="music">
       <div class="music-thumb">
-        <img src="https://source.unsplash.com/random" alt="music-image" />
+        <img
+          class="thumb"
+          src="https://source.unsplash.com/random"
+          alt="music-image"
+        />
       </div>
       <audio id="song"></audio>
       <h3 class="music-name">Shape of you</h3>
-      <h4 class="author-name">Ed Sherran</h4>
+      <h4 class="author-name">Ed Sheeran</h4>
       <input
         type="range"
         name="range"
@@ -43,6 +47,7 @@
         <div class="duration-time">00:00</div>
       </div>
       <div class="controls">
+        <ion-icon name="infinite" class="play-infinite"></ion-icon>
         <ion-icon name="play-back" class="play-back"></ion-icon>
         <div class="play">
           <div class="play-inner">
@@ -50,6 +55,7 @@
           </div>
         </div>
         <ion-icon name="play-forward" class="play-forward"></ion-icon>
+        <ion-icon name="repeat" class="play-repeat"></ion-icon>
       </div>
     </div>
     <script src="./main.js"></script>

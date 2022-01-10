@@ -93,7 +93,7 @@ body {
 
 .controls {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   gap: 0 40px;
 }
@@ -128,8 +128,17 @@ body {
 }
 
 .play-back,
-.play-forward {
+.play-forward,
+.play-infinite,
+.play-repeat {
   cursor: pointer;
+}
+
+.play-repeat.active,
+.play-infinite.active {
+  color: rgb(126, 16, 230);
+  font-weight: 700;
+  transform: scale(1.1);
 }
 
 .music-range {
