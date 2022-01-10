@@ -28,13 +28,19 @@
       <div class="music-thumb">
         <img src="https://source.unsplash.com/random" alt="music-image" />
       </div>
-      <audio src="./musics/BadHabits-EdSheeran.mp3" id="song"></audio>
+      <audio id="song"></audio>
       <h3 class="music-name">Shape of you</h3>
       <h4 class="author-name">Ed Sherran</h4>
-      <input type="range" name="range" id="range" class="music-range" />
+      <input
+        type="range"
+        name="range"
+        id="range"
+        class="music-range"
+        value="0"
+      />
       <div class="timer">
-        <div class="duration">2:10</div>
-        <div class="remaining">-3:56</div>
+        <div class="current-time">00:00</div>
+        <div class="duration-time">00:00</div>
       </div>
       <div class="controls">
         <ion-icon name="play-back" class="play-back"></ion-icon>
