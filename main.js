@@ -13,6 +13,8 @@ const currentTimeEl = document.querySelector('.current-time');
 const durationTimeEl = document.querySelector('.duration-time');
 const rangeTimeEl = document.querySelector('.music-range');
 
+const musicItems = document.querySelectorAll('.item');
+
 let musicIndex = 0;
 let isPLaying = false;
 let behavior = 'repeat';
@@ -56,13 +58,37 @@ const musics = [
   },
 ];
 
-const playerInit = () => {
-  song.src = `./musics/${musics[musicIndex].filename}`;
-  thumb.src = musics[musicIndex].image;
-  musicName.textContent = musics[musicIndex].name;
-  authorName.textContent = musics[musicIndex].singer;
+const resetActive = items => {
+  items.forEach(el => {
+    el.classList.remove('active');
+  });
 };
-playerInit();
+
+const updateActive = index => {
+  resetActive(musicItems);
+  const musicEls = [...musicItems];
+  musicEls[index].classList.add('active');
+};
+
+musicItems.forEach((el, index) => {
+  el.addEventListener('click', () => {
+    playerInit(index);
+    isPLaying = false;
+    resetActive(musicItems);
+    el.classList.add('active');
+    playPause();
+  });
+});
+
+const playerInit = index => {
+  song.src = `./musics/${musics[index].filename}`;
+  thumb.src = musics[index].image;
+  musicName.textContent = musics[index].name;
+  authorName.textContent = musics[index].singer;
+
+  updateActive(index);
+};
+playerInit(musicIndex);
 
 const rangeChangeHandler = () => {
   song.currentTime = rangeTimeEl.value;
@@ -101,7 +127,7 @@ const changeMusic = direction => {
     if (musicIndex > musics.length - 1) {
       musicIndex = 0;
     }
-    playerInit();
+    playerInit(musicIndex);
     isPLaying = false;
   }
   if (direction === -1) {
@@ -109,7 +135,7 @@ const changeMusic = direction => {
     if (musicIndex < 0) {
       musicIndex = musics.length - 1;
     }
-    playerInit();
+    playerInit(musicIndex);
     isPLaying = false;
   }
 
@@ -147,10 +173,13 @@ const replay = () => {
 song.addEventListener('ended', () => {
   if (behavior === 'repeat') {
     changeMusic(1);
+    return;
   }
   if (behavior === 'infinite') {
     rangeTimeEl.value = 0;
     isPLaying = false;
     playPause();
+    return;
   }
+  changeMusic(1);
 });

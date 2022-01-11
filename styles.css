@@ -47,8 +47,9 @@ body {
   padding: 20px;
 }
 
-.music {
-  max-width: 500px;
+.music,
+.playlist {
+  max-width: 600px;
   margin: 0 auto;
   border-radius: 12px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -165,4 +166,48 @@ body {
   height: 2px;
   cursor: pointer;
   background: #999;
+}
+
+.playlist {
+  padding: 20px 0;
+  margin-top: 30px;
+}
+
+.item {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: rgba(255, 255, 255, 0.349);
+  border-radius: 10px;
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0 20px;
+  justify-content: space-between;
+  padding: 20px;
+  transition: background-color linear 0.3s;
+}
+
+.item.active {
+  background-color: rgb(255, 134, 134, 0.7);
+}
+
+.item:hover {
+  cursor: pointer;
+  background-color: rgb(255, 134, 134, 0.7);
+}
+
+.item-image {
+  width: 50px;
+  height: 50px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.item-name,
+.item-author {
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.item-author,
+.item-time {
+  opacity: 0.8;
 }
